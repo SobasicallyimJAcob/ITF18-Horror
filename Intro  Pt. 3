@@ -1,0 +1,73 @@
+#intro pt 2 ends here
+
+door = 0
+rock = 0
+razor = 0
+option = "0"
+rock_option = 0
+doll_option = 0
+#prestats
+#intro text
+print("")
+print("You walk up to the house, its locked")
+print("You will need a key to get in")
+print("")
+
+while True:#how you get into the house
+  print("There are 4 things you should probably inspect")#item inspecting options
+  option = input("(Tree, Rock, Bush, Doll, Kick)")
+
+  if option == " ":#to help with awnsers
+    continue
+  elif option != "":
+    print("")
+    option = option[0]
+
+#tree
+  if option == "t" or option == "T":#determines what item to inspect
+    print("You see an acorn hanging from the tree, you could knock it down with a rock")
+    print("")
+    if rock == 1:
+      acorn = input("Do you want to throw the rock?(yes, no)")
+      if acorn != "":
+        print("")
+        acorn = acorn[0]
+        if acorn == "y" or acorn == "Y":
+          razor = 1#adding items by changing them to an on value
+          rock = 2#giving items a value worth less than 0
+          print("The acorn fell down and broke open with a razor inside, you grab the razor carefully")
+          print("")
+        elif acorn == "n" or acorn == "N":
+          print("You don't throw the rock ")
+          print("")
+      elif acorn == " ":
+        continue
+    elif rock == 0:
+      print("But you don't have a rock")
+      print("")
+    elif rock == 2:#if the player already completed the action
+      print("But you already knocked down the acorn")
+      print("")
+
+#rock
+  elif option == "r" or option == "R":
+    if rock_option == 2:
+      print("You already took the rock")
+      print("")
+    else:
+      print("Its just a normal rock, pick it up?")
+      rock_option = input("(yes, no)")
+      if rock_option == " ":#to help with awnsers
+        continue
+      elif rock_option != "":
+        print("")
+        rock_option = rock_option[0]
+        if rock_option == "Y" or rock_option == "y":
+          print("You picked up the rock")
+          print("")
+          rock = 1
+          rock_option = 2
+        elif rock_option != "Y" or rock_option != "y":
+          print("You leave it alone")
+          print("")
+          rock = 0
